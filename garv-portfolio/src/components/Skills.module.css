@@ -1,0 +1,157 @@
+.section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; z-index: 2;
+}
+.inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 6rem 3rem;
+}
+.header {
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem;
+}
+.num { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+.title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white); letter-spacing: -0.02em;
+}
+.line { flex: 1; height: 1px; background: var(--border); margin-left: 1rem; align-self: center; }
+
+/* Tabs */
+.tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.tab {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.tab:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+.tabActive { font-weight: 500; background: rgba(0,0,0,0.3); }
+.tabIcon { font-size: 0.9rem; }
+
+/* Main panel */
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  animation: fadeIn 0.35s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+.panelLabel {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1.8rem; font-family: var(--font-mono);
+}
+
+/* Bars */
+.bars { display: flex; flex-direction: column; gap: 1.4rem; }
+.skillRow { display: flex; flex-direction: column; gap: 0.45rem; }
+.skillMeta { display: flex; justify-content: space-between; }
+.skillName { font-size: 0.75rem; color: var(--text); }
+.skillPct { font-size: 0.7rem; font-family: var(--font-mono); font-weight: 500; transition: color 0.3s; }
+
+.barBg {
+  height: 5px; background: rgba(255,255,255,0.05);
+  border-radius: 99px; position: relative; overflow: visible;
+}
+.barFill {
+  height: 100%; border-radius: 99px;
+  width: 0;
+  position: relative;
+}
+.barGlow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-left: -4px;
+  filter: blur(3px);
+}
+
+/* Right col */
+.rightCol { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.radarWrap {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  padding: 1rem 0.5rem 0.5rem;
+  border-radius: 4px;
+}
+.radar { display: block; }
+.radarLabel { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.5rem; }
+
+/* Highlight card */
+.highlight {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 1.2rem 1.4rem;
+}
+.highlightLabel { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.highlightName { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem; }
+.highlightPct { font-size: 0.65rem; color: var(--muted); margin-bottom: 0.8rem; }
+.highlightBar { height: 3px; background: rgba(255,255,255,0.05); border-radius: 99px; overflow: hidden; }
+.highlightFill { height: 100%; border-radius: 99px; width: 0; }
+
+/* Stat grid */
+.statGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.statBox {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+}
+.statVal { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; }
+.statKey { font-size: 0.55rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+
+/* All skills chips */
+.allSkills {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  padding: 2rem;
+  background: rgba(0,0,0,0.2);
+}
+.allSkillsLabel {
+  font-size: 0.65rem; color: var(--muted);
+  letter-spacing: 0.12em; margin-bottom: 1.2rem;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.chip {
+  padding: 0.35rem 0.9rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 3px;
+  font-size: 0.7rem; color: var(--text);
+  transition: all 0.2s;
+}
+.chip:hover {
+  border-color: var(--chip-color);
+  color: var(--chip-color);
+  background: rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--chip-color) 20%, transparent);
+}
+
+@media (max-width: 900px) {
+  .panel { grid-template-columns: 1fr; }
+  .rightCol { flex-direction: row; flex-wrap: wrap; }
+  .radarWrap { flex: 1; min-width: 200px; }
+  .highlight { flex: 1; min-width: 180px; }
+  .statGrid { width: 100%; }
+}
+@media (max-width: 640px) {
+  .inner { padding: 4rem 1.5rem; }
+  .panel { padding: 1.5rem; }
+}

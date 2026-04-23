@@ -1,0 +1,48 @@
+.section { background: var(--surface); border-top: 1px solid var(--border); position: relative; z-index: 2; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem 4rem; }
+.header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem; }
+.num { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+.title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); letter-spacing: -0.02em; }
+.line { flex: 1; height: 1px; background: var(--border); margin-left: 1rem; align-self: center; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.intro { font-size: 0.8rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; max-width: 420px; }
+
+.links { display: flex; flex-direction: column; gap: 0.7rem; }
+.link {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.9rem 1.4rem;
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 4px; text-decoration: none; color: var(--text);
+  font-size: 0.75rem; transition: all 0.22s;
+}
+.link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(6px); }
+.linkIcon { font-size: 1rem; min-width: 20px; }
+.linkLabel { flex: 1; }
+.linkArrow { color: var(--muted); transition: color 0.2s; }
+.link:hover .linkArrow { color: var(--accent); }
+
+.eduLabel { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 1.5rem; }
+.timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+.timelineItem { display: flex; gap: 1.4rem; align-items: flex-start; }
+.timelineDot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 4px;
+}
+.timelineContent {}
+.timelineSchool { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--white); }
+.timelineSub { font-size: 0.7rem; margin: 0.2rem 0; }
+.timelineMeta { font-size: 0.62rem; color: var(--muted); }
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 3rem;
+  display: flex; justify-content: space-between;
+  font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em;
+}
+
+@media(max-width:768px) {
+  .inner { padding: 4rem 1.5rem 2rem; }
+  .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+}

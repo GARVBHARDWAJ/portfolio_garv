@@ -1,0 +1,47 @@
+.section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; z-index: 2; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+.header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem; }
+.num { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+.title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); letter-spacing: -0.02em; }
+.line { flex: 1; height: 1px; background: var(--border); margin-left: 1rem; align-self: center; }
+
+.marqueeWrap { overflow: hidden; position: relative; margin-bottom: 3rem; }
+.fade { position: absolute; left: 0; top: 0; bottom: 0; width: 100px; background: linear-gradient(90deg, var(--surface), transparent); z-index: 2; }
+.fadeRight { position: absolute; right: 0; top: 0; bottom: 0; width: 100px; background: linear-gradient(-90deg, var(--surface), transparent); z-index: 2; }
+.marquee {
+  display: flex; gap: 0.8rem; width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee:hover { animation-play-state: paused; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.65rem 1.3rem;
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 999px; white-space: nowrap;
+  font-size: 0.7rem; color: var(--text); text-decoration: none;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: var(--accent3); color: var(--accent3); transform: translateY(-3px); }
+.icon { font-size: 0.9rem; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.certCard {
+  background: var(--panel);
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1.1rem 1.4rem;
+  text-decoration: none; color: var(--text);
+  font-size: 0.73rem;
+  transition: background 0.2s, color 0.2s;
+}
+.certCard:hover { background: #141c26; color: var(--accent3); }
+.certIcon { font-size: 1.1rem; flex-shrink: 0; }
+.certName { flex: 1; }
+.certArrow { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+.certCard:hover .certArrow { color: var(--accent3); }
+
+@media(max-width:640px) { .inner { padding: 4rem 1.5rem; } }
